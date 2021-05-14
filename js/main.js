@@ -5,7 +5,13 @@
 
 			const detailsTmpl = `
 			<div class="details__bg details__bg--down">
-				<button class="details__close"><i class="fas fa-2x fa-times icon--cross tm-fa-close"></i></button>
+			<nav class="navbar navbar-expand-lg navbar-light nav-distance">
+                                                        <a class="navbar-brand" href="#">Eyebe</a>
+                                                        
+														<button class="details__close"><i class="fas fa-2x fa-times icon--cross tm-fa-close"></i></button>
+                                                        
+                                                    </nav>
+				
 				<div class="details__description"></div>
 			</div>						
 			`;
