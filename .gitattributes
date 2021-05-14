@@ -1,2 +1,5 @@
-jest.config.js linguist-vendored
-yarn-*.js linguist-vendored
+slick.js linguist-vendored
+anime.min.js linguist-vendored
+slick.min.js linguist-vendored
+main.js linguist-vendored
+jquary-3.2.1.slim.min.js linguist-vendored
