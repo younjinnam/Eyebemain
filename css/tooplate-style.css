@@ -13,8 +13,8 @@ body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-family: 'Jua', sans-serif;
 	font-size: 25px;
-	font-weight: 300;
-    color:#935887;        
+	font-weight: 250;
+    color:#000000;        
     position: relative;
 }
 
@@ -113,7 +113,7 @@ p {
     bottom: -45px;
 }
 
-.fa-3x { font-size: 2.5em; }
+.fa-2x { font-size: 2.5em; }
 
 .product {
     background: transparent;
@@ -167,8 +167,8 @@ p {
 
 .details {
     font-size: 1rem;    
-    width: 150%;
-    height: 150%;
+    width: 100%;
+    height: 100%;
     bottom: 0;
     left: 0;
     z-index: 1000;
@@ -180,6 +180,7 @@ p {
     display: none; 
 }
 
+
 .details > * {
     position: relative;
     opacity: 0;
@@ -188,7 +189,7 @@ p {
 .details--open { pointer-events: auto; }
 
 .details__bg {
-    width: 150%;
+    width: 100%;
     max-width: 900px;
     left: 0;
     right: 0;
@@ -196,7 +197,7 @@ p {
     margin-right: auto;
 }
 
-.details__bg--down { background: #2c2a35; }
+.details__bg--down { background: #FCD8DF; }
 
 .details__bg {
     padding: 50px;
@@ -212,7 +213,7 @@ p {
     margin: 1em;
     cursor: pointer;
     font-size: 0.85em;
-    color: #eedfeb;
+    color: white;
     z-index: 1001;
 }
 
@@ -226,7 +227,7 @@ p {
 }
 
 .slick-dots li button:before {
-    font-size: 20px;
+    font-size: 30px;
     color: white;
     opacity: 1;
 }
