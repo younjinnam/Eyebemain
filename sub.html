@@ -21,7 +21,7 @@ http://www.tooplate.com/view/2097-pop
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>                       <!-- http://kenwheeler.github.io/slick/ -->
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="stylesheet" href="css/tooplate-style.css">                               <!-- Templatemo style -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");</script>
     
 </head>
@@ -60,8 +60,8 @@ http://www.tooplate.com/view/2097-pop
 			</div>
 		</nav>
 		<section class="section">
-			<h1 class="title">과일 채소의 신선도 체크</h1>
-			<h2 class="subtitle">아 너무 졸리다. 이 앱은 언제쯤 개발 될까...</h2>
+			<h1 class="title">신선도 체크</h1>
+			
 		</section>
 
 		<script
@@ -79,6 +79,7 @@ http://www.tooplate.com/view/2097-pop
 				<div class="drag-text">
 					<!-- 이미지파일 <img src=-->
 					<h3 class="upload-text">사과사진 그만....</h3>
+				
 				</div>
 			</div>
 			<div class="file-upload-content">
@@ -104,14 +105,7 @@ http://www.tooplate.com/view/2097-pop
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     */
-			(function () {
-				// DON'T EDIT BELOW THIS LINE
-				var d = document,
-					s = d.createElement('script');
-				s.src = 'https://eyebe-i-be.disqus.com/embed.js';
-				s.setAttribute('data-timestamp', +new Date());
-				(d.head || d.body).appendChild(s);
-			})();
+			
 		</script>
 		<noscript
 			>Please enable JavaScript to view the
@@ -180,7 +174,7 @@ http://www.tooplate.com/view/2097-pop
 			// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
 			// 티쳐블머신 링크
-			const URL = 'https://teachablemachine.withgoogle.com/models/wrUT-xi_d/';
+			const URL = 'https://teachablemachine.withgoogle.com/models/RBiFV9_Tk/';
 
 			let model, webcam, labelContainer, maxPredictions;
 
@@ -208,22 +202,60 @@ http://www.tooplate.com/view/2097-pop
 				const prediction = await model.predict(image, false);
 				prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
 				console.log(prediction[0].className);
-				var resultMessage;
+				var resultTitle, resultExplain;
 				switch (prediction[0].className) {
-					case "good apples":
-						resultMessage = "좋은 사과입니다."
+					case 'color_goodX':
+						resultTitle = '사과입니다.';
+						resultTitle = '';
+						resultExplain = '흠집없고 색깔좋음';
 						break;
-					case "bad apples":
-						resultMessage = "다른 거 사세요"
+					case 'color_goodO':
+						resultTitle = '사과입니다.';
+						resultExplain = '흠집있고 색깔좋음';
+						break;
+					case 'color_badX':
+						resultTitle = '사과입니다.';
+						resultExplain = '흠집없고 색깔안x좋음';
+						break;
+					case 'color_badO':
+						resultTitle = '사과입니다.';
+						resultExplain = '흠집있고 색깔안좋음';
 						break;
 					default:
-						resultMessage = "알 수 없어요 ㅠㅠ"
+						resultTitle = '알 수 없어요 ㅠㅠ';
 				}
-				$('.result-message').html(resultMessage)
+				var title =
+					"<div class='" +
+					prediction[0].className +
+					"-apple-title'>" +
+					resultTitle +
+					'</div>';
+				var explain = "<div class='apple-explain pt-2'>" + resultExplain + '</div>';
+				$('.result-message').html(title + explain);
+				var barWidth;
 				for (let i = 0; i < maxPredictions; i++) {
-					const classPrediction =
-						prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
-					labelContainer.childNodes[i].innerHTML = classPrediction;
+					if (prediction[i].probability.toFixed(2) > 0.1) {
+						barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + '%';
+					} else if (prediction[i].probability.toFixed(2) >= 0.01) {
+						barWidth = '4%';
+					} else {
+						barWidth = '2%';
+					}
+					var label =
+						"<div class='apple-label d-flex align-items-center'>" +
+						labelTitle +
+						'</div>';
+					var bar =
+						"<div class='bar-container position-relative container'><div class='" +
+						prediction[i].className +
+						"-box'></div><div class='d-flex justify-content-center align-items-center " +
+						prediction[i].className +
+						"-bar' style='width: " +
+						barWidth +
+						"'><span class='d-block percent-text'>" +
+						Math.round(prediction[i].probability.toFixed(2) * 100) +
+						'%</span></div></div>';
+					labelContainer.childNodes[i].innerHTML = label + bar;
 				}
 			}
 		</script>
