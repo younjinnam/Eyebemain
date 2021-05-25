@@ -106,7 +106,7 @@ p {
 }
 
 .tm-nav-text {
-    color: #8A7FAE;
+    color: #FFCC66;
     position: absolute;
     left: 0;
     right: 0;
@@ -309,7 +309,7 @@ footer {
 }
 
 .tm-copyright-text {
-    background-color: #e4d8db;
+    background-color: #FFCC66;
     display: inline-block;
     padding: 10px 30px;
 }
