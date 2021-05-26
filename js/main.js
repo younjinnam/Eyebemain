@@ -201,9 +201,7 @@
 			this.DOM.product = this.DOM.el.querySelector('.product');
 			this.DOM.productBg = this.DOM.product.querySelector('.product__bg');
 
-			this.info = {
-				description: this.DOM.product.querySelector('.product__description').innerHTML,
-			};
+			
 
 			this.initEvents();
 		}
