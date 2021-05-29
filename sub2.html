@@ -1,13 +1,18 @@
 <!DOCTYPE html>
+<html>
 	<html lang="ko">
 		<head>
-			<meta charset="UTF-8" />
-			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<title>I be, eye be 유통기한</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-			<!--Template 2097 Pop http://www.tooplate.com/view/2097-pop-->
+			<title>I be, Eye be</title>
+			<!--
 
+Template 2097 Pop
+
+http://www.tooplate.com/view/2097-pop
+
+-->
 			<!-- load CSS -->
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" />
 			<!-- Google web font "Open Sans" -->
@@ -20,7 +25,7 @@
 			<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 			<link rel="stylesheet" href="css/tooplate-style.css" />
 			<!-- Templatemo style -->
-
+			<link rel="stylesheet" href="css/style.css" />
 			<script>
 				document.documentElement.className = 'js';
 				var supportsCssVars = function () {
@@ -43,44 +48,63 @@
 						'Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.'
 					);
 			</script>
-			<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 		</head>
 
 		<body>
 			<div id="tm-bg"></div>
-			<div id="tm-wrap">
-				<div class="tm-main-content">
-					<div class="container tm-site-header-container">
-						<div class="row">
-							<div
-								class="col-sm-12 col-md-6 col-lg-6 col-md-col-xl-6 mb-md-0 mb-sm-4 mb-4 tm-site-header-col"
-							>
-								<div class="tm-site-header">
-									<h1 class="mb-4">I Be, Eye Be</h1>
-									<img src="img/underline.png" class="img-fluid mb-4" />
-									<div>
-										<label for="file1">유통기한</label>
-										<input
-											class="file-upload-input"
-											type="file"
-											id="file1"
-											name="file1"
-											onchange="fn_submit();"
-											accept="image/*"
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
+			<nav class="navbar navbar-expand-lg navbar-light nav-distance">
+				<a class="navbar-brand" href="#">Eyebe</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav"></div>
+			</nav>
+			<section class="section">
+				<h1 class="title">유통기한</h1>
+			</section>
+			<script
+				class="jsbin"
+				src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+			></script>
+			<div class="container file-upload">
+				<div class="image-upload-wrap">
+					<input
+						class="file-upload-input"
+						type="file"
+						id="file1"
+						name="file1"
+						onchange="fn_submit();"
+						accept="image/*"
+					/>
+					<div class="drag-text">
+						<!-- 이미지파일 <img src=-->
+						<h3 class="upload-text">사진을 선택해주세요.</h3>
+					</div>
+				</div>
+				<div class="file-upload-content">
+					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
+					<p class="result-message"></p>
+					<div id="label-container"></div>
+					<div class="image-title-wrap">
+						<button
+							type="container button"
+							onclick="removeUpload()"
+							class="remove-image"
+						>
+							Remove <span class="image-title">Uploaded Image</span>
+						</button>
 					</div>
 				</div>
 			</div>
-
-			<footer>
-				<p class="small tm-copyright-text">
-					Copyright &copy; <span class="tm-current-year">2021</span> 4아이즈 FOR_EYES
-				</p>
-			</footer>
+			
 		</body>
 
 		<script>
@@ -107,3 +131,4 @@
 			}
 		</script>
 	</html>
+</html>

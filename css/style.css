@@ -28,8 +28,7 @@ footer {
 	padding: 15% 3%;
 	margin: 0 auto;
 	border-radius: 10px;
-	border: solid 1.5px #f6f7fa;
-	background-color: #f6f7fa;
+	
 }
 
 .file-upload-btn {
@@ -96,7 +95,7 @@ footer {
 
 .image-title-wrap {
 	padding: 0 15px 15px 15px;
-	color: #222;
+	color: #FFCC66;
 }
 
 .drag-text {
@@ -104,7 +103,7 @@ footer {
 }
 
 .drag-text h3 {
-	font-weight: 500;
+	font-weight: 200;
 	text-transform: uppercase;
 }
 
@@ -142,6 +141,7 @@ footer {
 }
 
 .navbar-light .navbar-brand {
+	margin-top: 30px;
 	line-height: 1.68;
 	text-align: left;
 	color: #35465d;
@@ -149,6 +149,8 @@ footer {
 
 .navbar-light .navbar-toggler {
 	border-color: #ffffff;
+	margin-top: 30px;
+	
 }
 
 .nav-distance {
@@ -159,6 +161,7 @@ footer {
 	margin-top: 50px;
 }
 .title {
+	font-size: 4.0rem;
 	line-height: 1.67;
 	text-align: center;
 	color: #ffcc66;
@@ -176,10 +179,10 @@ footer {
 
 .upload-text {
 	width: 58%;
-	font-size: 1.5rem;
+	font-size: 2.5rem;
 	line-height: 1.53;
 	text-align: center;
-	color: #35465d;
+	color: #ffcc66;
 	margin: 0 auto;
 }
 
@@ -231,7 +234,7 @@ footer {
 }
 
 .result-message {
-	font-size: 2rem;
+	font-size: 2.5rem;
 }
 
 #label-container {
@@ -240,7 +243,7 @@ footer {
 }
 
 .apple-explain {
-	font-size: 1.5rem;
+	font-size: 2.5rem;
 }
 
 .good-apples-title {
@@ -278,12 +281,14 @@ footer {
 
 	.remove-image {
 		width: 80vw;
+		border-color: #FFCC66;
+		color: #FFCC66;
 	}
 }
 
 @media screen and (max-width: 575px) {
 	.drag-text h3 {
-		width: 100vw;
+		width: 50vw;
 	}
 }
 @media screen and (max-width: 540px) {

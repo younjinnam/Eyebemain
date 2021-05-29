@@ -98,6 +98,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	
 	width: 165px;
 	height: 165px;
 	text-align: center;
@@ -108,10 +109,11 @@ p {
 
 .tm-nav-text {
 	color: #ffcc66;
+	font-size: 35px;
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: -45px;
+	bottom: -60px;
 }
 
 .fa-2x {

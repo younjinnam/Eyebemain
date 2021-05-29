@@ -26,6 +26,7 @@ http://www.tooplate.com/view/2097-pop
 </head>
 	
 	<body>
+		<div id="tm-bg"></div>
 		<nav class="navbar navbar-expand-lg navbar-light nav-distance">
 			<a class="navbar-brand" href="#">Eyebe</a>
 			<button
@@ -40,12 +41,7 @@ http://www.tooplate.com/view/2097-pop
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Freshness <span class="sr-only">(current)</span></a>
-					</li>
-					
-				</ul>
+				
 			</div>
 		</nav>
 		<section class="section">
@@ -58,7 +54,7 @@ http://www.tooplate.com/view/2097-pop
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 		></script>
 		<div class="container file-upload">
-			<div class="image-upload-wrap">
+				<div class="image-upload-wrap">
 				<input
 					class="file-upload-input"
 					type="file"
@@ -72,14 +68,15 @@ http://www.tooplate.com/view/2097-pop
 				</div>
 			</div>
 			<div class="file-upload-content">
-				<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
-				<p class="result-message"></p>
-				<div id="label-container"></div>
-				<div class="image-title-wrap">
+				
+					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
+					<p class="result-message"></p>
+					<div id="label-container"></div>
+					<div class="image-title-wrap">
 					<button type="container button" onclick="removeUpload()" class="remove-image">
-						Remove <span class="image-title">Uploaded Image</span>
+						다른 사진
 					</button>
-				</div>
+					</div>
 			</div>
 		</div>
 		<div id="webcam-container"></div>
@@ -163,7 +160,7 @@ http://www.tooplate.com/view/2097-pop
 			// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
 			// 티쳐블머신 링크
-			const URL = 'https://teachablemachine.withgoogle.com/models/RBiFV9_Tk/';
+			const URL = 'https://teachablemachine.withgoogle.com/models/Nn-9_h7k5/';
 
 			let model, webcam, labelContainer, maxPredictions;
 
@@ -194,20 +191,28 @@ http://www.tooplate.com/view/2097-pop
 				var resultTitle, resultExplain;
 				switch (prediction[0].className) {
 					case 'color_goodX':
+						var audio = new Audio("audio/yo.mp3");
+						audio.play();
 						resultTitle = '사과입니다. 사과는 모양이 균일하고 표면 껍질이 매끈한 것보다 까칠한 것이 당도가 더 높습니다.';
-						resultExplain = '흠집 없음 | 색깔 우수';
+						resultExplain = '흠집이 없고 색깔이 우수합니다.';
 						break;
 					case 'color_goodO':
+						var audio = new Audio("audio/yo.mp3");
+						audio.play();
 						resultTitle = '사과입니다. 사과는 모양이 균일하고 표면 껍질이 매끈한 것보다 까칠한 것이 당도가 더 높습니다.';
-						resultExplain = '흠집 있음 | 색깔 우수';
+						resultExplain = '흠집은 있지만 색깔이 우수합니다.';
 						break;
 					case 'color_badX':
+						var audio = new Audio("audio/yo.mp3");
+						audio.play();
 						resultTitle = '사과입니다. 사과는 모양이 균일하고 표면 껍질이 매끈한 것보다 까칠한 것이 당도가 더 높습니다.';
-						resultExplain = '흠집 없음 | 색깔 열등';
+						resultExplain = '흠집은 없지만 색깔이 열등합니다.';
 						break;
 					case 'color_badO':
+						var audio = new Audio("audio/yo.mp3");
+						audio.play();
 						resultTitle = '사과입니다. 사과는 모양이 균일하고 표면 껍질이 매끈한 것보다 까칠한 것이 당도가 더 높습니다.';
-						resultExplain = '흠집 있음 | 색깔 열등';
+						resultExplain = '흠집이 있고 색깔이 열등합니다.';
 						break;
 					default:
 						resultTitle = '이 과일 서비스는 현재 준비중입니다.';
@@ -229,10 +234,7 @@ http://www.tooplate.com/view/2097-pop
 					} else {
 						barWidth = '2%';
 					}
-					var label =
-						"<div class='apple-label d-flex align-items-center'>" +
-						labelTitle +
-						'</div>';
+					
 					var bar =
 						"<div class='bar-container position-relative container'><div class='" +
 						prediction[i].className +
@@ -243,16 +245,11 @@ http://www.tooplate.com/view/2097-pop
 						"'><span class='d-block percent-text'>" +
 						Math.round(prediction[i].probability.toFixed(2) * 100) +
 						'%</span></div></div>';
-					labelContainer.childNodes[i].innerHTML = label + bar;
+					
+					//labelContainer.childNodes[i].innerHTML = label + bar;
 				}
 			}
 		</script>
 	</body>
-	<!-- Copyright (c) 2021 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
---></html>
+	
+</html>
