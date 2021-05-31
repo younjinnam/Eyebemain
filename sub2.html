@@ -6,13 +6,8 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 			<title>I be, Eye be</title>
-			<!--
-
-Template 2097 Pop
-
-http://www.tooplate.com/view/2097-pop
-
--->
+			
+			
 			<!-- load CSS -->
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" />
 			<!-- Google web font "Open Sans" -->
@@ -81,7 +76,7 @@ http://www.tooplate.com/view/2097-pop
 						type="file"
 						id="file1"
 						name="file1"
-						onchange="fn_submit();"
+						onchange="readURL(this);"
 						accept="image/*"
 					/>
 					<div class="drag-text">
@@ -90,6 +85,17 @@ http://www.tooplate.com/view/2097-pop
 					</div>
 				</div>
 				<div class="file-upload-content">
+				
+					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
+					<p class="result-message"></p>
+					<div id="label-container"></div>
+					<div class="image-title-wrap">
+					<button type="container button" onclick="removeUpload()" class="remove-image">
+						다른 사진
+					</button>
+					</div>
+			</div>
+				<!-- <div class="file-upload-content">
 					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
 					<p class="result-message"></p>
 					<div id="label-container"></div>
@@ -102,7 +108,7 @@ http://www.tooplate.com/view/2097-pop
 							Remove <span class="image-title">Uploaded Image</span>
 						</button>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			
 		</body>
@@ -129,6 +135,81 @@ http://www.tooplate.com/view/2097-pop
 					},
 				});
 			}
+		</script>
+		<script>
+			var ocrAPI = 'https://stdio.kr/ocr/';
+			
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = async (e) => {
+						$('.image-upload-wrap').hide();
+						$('.result-message').hide();
+
+						$('.file-upload-image').attr('src', e.target.result);
+						$('.file-upload-content').show();
+
+						$('.image-title').html(input.files[0].name);
+						
+						const res = await fetch(ocrAPI, {
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							method: 'POST',
+							body: JSON.stringify({
+								base64str: e.target.result
+							})
+						});
+						
+						const data = await res.json();
+						
+						if (res.ok) {
+							console.log(data.images);
+							
+							if (data.images[0].inferResult == 'SUCCESS') {
+								var expDate = data.images[0].fields[0].inferText;
+								var nameText = data.images[0].fields[1].inferText;
+								
+								var htmlText = '';
+								if (nameText != '' ) {
+									htmlText = '품목명 : ' + nameText;
+								}
+								if (expDate != '') {
+									htmlText = htmlText + '<br/>' + '유통기한 : ' + expDate;
+								}
+							
+								$('.result-message').html(htmlText);
+								$('.result-message').show();
+							}
+							
+						} else {
+							throw Error(data);
+						}
+					}; 
+
+					reader.readAsDataURL(input.files[0]);
+					// init().then(function(){
+					// 	console.log("hello");
+
+					// 	predict();
+					// });
+				} else {
+					removeUpload();
+				}
+			}
+
+			function removeUpload() {
+				$('.file-upload-input').replaceWith($('.file-upload-input').clone());
+				$('.file-upload-content').hide();
+				$('.image-upload-wrap').show();
+			}
+			$('.image-upload-wrap').bind('dragover', function () {
+				$('.image-upload-wrap').addClass('image-dropping');
+			});
+			$('.image-upload-wrap').bind('dragleave', function () {
+				$('.image-upload-wrap').removeClass('image-dropping');
+			});
 		</script>
 	</html>
 </html>
