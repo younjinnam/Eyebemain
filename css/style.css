@@ -278,8 +278,33 @@ footer {
 	.navbar-brand {
 		font-size: 2rem;
 	}
+	
+	.btn-group {
+		border: 1px #FFCC66;
+		color: white;
+		padding: 1px 35px;
+		text-align: center;
+		font-size: 20px;
+		cursor: pointer;
+		width: 150px;
+		display: block;
+	
+	}
+	
+	.btn-group .button:not(:last-child) {
+		border-bottom: none;
+	}
+	.btn-group .button:hover {
+		background-color: #FFCC66;
+	}
 
 	.remove-image {
+		margin: 3px;
+		border-color: #FFCC66;
+		color: #FFCC66;
+	}
+	
+	.button_event() {
 		width: 80vw;
 		border-color: #FFCC66;
 		color: #FFCC66;

@@ -6,8 +6,7 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 			<title>I be, Eye be</title>
-			
-			
+
 			<!-- load CSS -->
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" />
 			<!-- Google web font "Open Sans" -->
@@ -85,16 +84,36 @@
 					</div>
 				</div>
 				<div class="file-upload-content">
-				
 					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
 					<p class="result-message"></p>
 					<div id="label-container"></div>
+
 					<div class="image-title-wrap">
-					<button type="container button" onclick="removeUpload()" class="remove-image">
-						다른 사진
-					</button>
+						<h2>
+							이 상품을 구입하시겠습니까?
+						</h2>
+						
+						<div class="btn-group" role="group" aria-label="Basic example">
+							<button
+								type="button"
+								type="container button"
+								onclick="removeUpload()"
+								class="remove-image"
+							>
+								다른상품
+							</button>
+							
+							<button 
+								type="button" 
+								value="save" 
+								onclick="button_event()"
+								class="remove-image"
+							>
+								구입
+							</button>
+						</div>
 					</div>
-			</div>
+				</div>
 				<!-- <div class="file-upload-content">
 					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
 					<p class="result-message"></p>
@@ -110,10 +129,10 @@
 					</div>
 				</div> -->
 			</div>
-			
 		</body>
 
-		<script>
+		<!-- 카카오 ocr
+        <script>
 			//파일 업로드
 			function fn_submit() {
 				var form = new FormData();
@@ -135,10 +154,10 @@
 					},
 				});
 			}
-		</script>
+		</script>-->
 		<script>
 			var ocrAPI = 'https://stdio.kr/ocr/';
-			
+
 			function readURL(input) {
 				if (input.files && input.files[0]) {
 					var reader = new FileReader();
@@ -151,42 +170,41 @@
 						$('.file-upload-content').show();
 
 						$('.image-title').html(input.files[0].name);
-						
+
 						const res = await fetch(ocrAPI, {
 							headers: {
-								'Content-Type': 'application/json'
+								'Content-Type': 'application/json',
 							},
 							method: 'POST',
 							body: JSON.stringify({
-								base64str: e.target.result
-							})
+								base64str: e.target.result,
+							}),
 						});
-						
+
 						const data = await res.json();
-						
+
 						if (res.ok) {
 							console.log(data.images);
-							
+
 							if (data.images[0].inferResult == 'SUCCESS') {
 								var expDate = data.images[0].fields[0].inferText;
 								var nameText = data.images[0].fields[1].inferText;
-								
+
 								var htmlText = '';
-								if (nameText != '' ) {
+								if (nameText != '') {
 									htmlText = '품목명 : ' + nameText;
 								}
 								if (expDate != '') {
 									htmlText = htmlText + '<br/>' + '유통기한 : ' + expDate;
 								}
-							
+
 								$('.result-message').html(htmlText);
 								$('.result-message').show();
 							}
-							
 						} else {
 							throw Error(data);
 						}
-					}; 
+					};
 
 					reader.readAsDataURL(input.files[0]);
 					// init().then(function(){
@@ -210,6 +228,19 @@
 			$('.image-upload-wrap').bind('dragleave', function () {
 				$('.image-upload-wrap').removeClass('image-dropping');
 			});
+		</script>
+		<script type="text/javascript">
+			function button_event() {
+				if (confirm('저장하시겠습니까?') == true) {
+					//확인
+
+					document.form.submit();
+				} else {
+					//취소
+
+					return;
+				}
+			}
 		</script>
 	</html>
 </html>
