@@ -1,120 +1,124 @@
 <!DOCTYPE html>
 <html>
-	<html lang="ko">
-		<head>
-			<meta charset="utf-8" />
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <html lang="ko">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-			<title>I be, Eye be</title>
+            <title>I be, Eye be</title>
 
-			<!-- load CSS -->
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" />
-			<!-- Google web font "Open Sans" -->
-			<link rel="stylesheet" href="css/bootstrap.min.css" />
-			<!-- https://getbootstrap.com/ -->
-			<link rel="stylesheet" href="fontawesome/css/fontawesome-all.min.css" />
-			<!-- https://fontawesome.com/ -->
-			<link rel="stylesheet" type="text/css" href="slick/slick.css" />
-			<!-- http://kenwheeler.github.io/slick/ -->
-			<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-			<link rel="stylesheet" href="css/tooplate-style.css" />
-			<!-- Templatemo style -->
-			<link rel="stylesheet" href="css/style.css" />
-			<script>
-				document.documentElement.className = 'js';
-				var supportsCssVars = function () {
-					var e,
-						t = document.createElement('style');
-					return (
-						(t.innerHTML = 'root: { --tmp-var: bold; }'),
-						document.head.appendChild(t),
-						(e = !!(
-							window.CSS &&
-							window.CSS.supports &&
-							window.CSS.supports('font-weight', 'var(--tmp-var)')
-						)),
-						t.parentNode.removeChild(t),
-						e
-					);
-				};
-				supportsCssVars() ||
-					alert(
-						'Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.'
-					);
-			</script>
-		</head>
+            <!-- load CSS -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" />
+            <!-- Google web font "Open Sans" -->
+            <link rel="stylesheet" href="css/bootstrap.min.css" />
+            <!-- https://getbootstrap.com/ -->
+            <link rel="stylesheet" href="fontawesome/css/fontawesome-all.min.css" />
+            <!-- https://fontawesome.com/ -->
+            <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+            <!-- http://kenwheeler.github.io/slick/ -->
+            <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+            <link rel="stylesheet" href="css/tooplate-style.css" />
+            <!-- Templatemo style -->
+            <link rel="stylesheet" href="css/style.css" />
+            <script>
+                document.documentElement.className = 'js';
+                var supportsCssVars = function () {
+                    var e,
+                        t = document.createElement('style');
+                    return (
+                        (t.innerHTML = 'root: { --tmp-var: bold; }'),
+                        document.head.appendChild(t),
+                        (e = !!(
+                            window.CSS &&
+                            window.CSS.supports &&
+                            window.CSS.supports('font-weight', 'var(--tmp-var)')
+                        )),
+                        t.parentNode.removeChild(t),
+                        e
+                    );
+                };
+                supportsCssVars() ||
+                    alert(
+                        'Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.'
+                    );
+            </script>
+            <!-- utility js import -->
+            <script src="js/utility.js"></script>
+            <!-- Jquery import -->
+            <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        </head>
 
-		<body>
-			<div id="tm-bg"></div>
-			<nav class="navbar navbar-expand-lg navbar-light nav-distance">
-				<a class="navbar-brand" href="#">Eyebe</a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-toggle="collapse"
-					data-target="#navbarNav"
-					aria-controls="navbarNav"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav"></div>
-			</nav>
-			<section class="section">
-				<h1 class="title">유통기한</h1>
-			</section>
-			<script
-				class="jsbin"
-				src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-			></script>
-			<div class="container file-upload">
-				<div class="image-upload-wrap">
-					<input
-						class="file-upload-input"
-						type="file"
-						id="file1"
-						name="file1"
-						onchange="readURL(this);"
-						accept="image/*"
-					/>
-					<div class="drag-text">
-						<!-- 이미지파일 <img src=-->
-						<h3 class="upload-text">사진을 선택해주세요.</h3>
-					</div>
-				</div>
-				<div class="file-upload-content">
-					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
-					<p class="result-message"></p>
-					<div id="label-container"></div>
+        <body>
+            <div id="tm-bg"></div>
+            <nav class="navbar navbar-expand-lg navbar-light nav-distance">
+                <a class="navbar-brand" href="#">Eyebe</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav"></div>
+            </nav>
+            <section class="section">
+                <h1 class="title">[유통기한]</h1>
+            </section>
+            <script
+                class="jsbin"
+                src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+            ></script>
+            <div class="container file-upload">
+                <div class="image-upload-wrap">
+                    <input
+                        class="file-upload-input"
+                        type="file"
+                        id="file1"
+                        name="file1"
+                        onchange="readURL(this);"
+                        accept="image/*"
+                    />
+                    <div class="drag-text">
+                        <!-- 이미지파일 <img src=-->
+                        <h3 class="upload-text">사진을 선택해주세요.</h3>
+                    </div>
+                </div>
+                <div class="file-upload-content">
+                    <img class="file-upload-image" id="apple-image" src="#" alt="your image" />
+                    <p class="result-message"></p>
+                    <div id="label-container"></div>
 
-					<div class="image-title-wrap">
-						<h2>
-							이 상품을 구입하시겠습니까?
-						</h2>
-						
-						<div class="btn-group" role="group" aria-label="Basic example">
-							<button
-								type="button"
-								type="container button"
-								onclick="removeUpload()"
-								class="remove-image"
-							>
-								다른상품
-							</button>
-							
-							<button 
-								type="button" 
-								value="save" 
-								onclick="button_event()"
-								class="remove-image"
-							>
-								구입
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="file-upload-content">
+                    <div class="image-title-wrap">
+                        <h2>
+                            이 상품을 구입하시겠습니까?
+                        </h2>
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button
+                                type="button"
+                                type="container button"
+                                onclick="removeUpload()"
+                                class="remove-image"
+                            >
+                                다른상품
+                            </button>
+
+                            <button
+                                type="button"
+                                value="save"
+                                onclick="button_event()"
+                                class="remove-image"
+                            >
+                                구입
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="file-upload-content">
 					<img class="file-upload-image" id="apple-image" src="#" alt="your image" />
 					<p class="result-message"></p>
 					<div id="label-container"></div>
@@ -128,16 +132,22 @@
 						</button>
 					</div>
 				</div> -->
-			</div>
-		</body>
+            </div>
 
-		<!-- 카카오 ocr
+            <!-- 검색된 데이터를 저장할 더미 폼 -->
+            <form action="#" method="get">
+                <input type="hidden" id="expDate" value="" />
+                <input type="hidden" id="nameText" value="" />
+            </form>
+        </body>
+
+        <!-- 카카오 ocr
         <script>
 			//파일 업로드
 			function fn_submit() {
 				var form = new FormData();
 				form.append('image', $('#file1')[0].files[0]);
-
+	
 				jQuery.ajax({
 					url: 'https://dapi.kakao.com/v2/vision/text/ocr',
 					headers: { Authorization: 'KakaoAK 191a534591e12e00d4dd3e0bf858cde8' },
@@ -155,92 +165,138 @@
 				});
 			}
 		</script>-->
-		<script>
-			var ocrAPI = 'https://stdio.kr/ocr/';
+        <script>
+            var ocrAPI = 'https://stdio.kr/ocr/';
 
-			function readURL(input) {
-				if (input.files && input.files[0]) {
-					var reader = new FileReader();
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
 
-					reader.onload = async (e) => {
-						$('.image-upload-wrap').hide();
-						$('.result-message').hide();
+                    reader.onload = async (e) => {
+                        $('.image-upload-wrap').hide();
+                        $('.result-message').hide();
 
-						$('.file-upload-image').attr('src', e.target.result);
-						$('.file-upload-content').show();
+                        $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-content').show();
 
-						$('.image-title').html(input.files[0].name);
+                        $('.image-title').html(input.files[0].name);
 
-						const res = await fetch(ocrAPI, {
-							headers: {
-								'Content-Type': 'application/json',
-							},
-							method: 'POST',
-							body: JSON.stringify({
-								base64str: e.target.result,
-							}),
-						});
+                        const res = await fetch(ocrAPI, {
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            method: 'POST',
+                            body: JSON.stringify({
+                                base64str: e.target.result,
+                            }),
+                        });
 
-						const data = await res.json();
+                        const data = await res.json();
 
-						if (res.ok) {
-							console.log(data.images);
+                        if (res.ok) {
+                            console.log(data.images);
 
-							if (data.images[0].inferResult == 'SUCCESS') {
-								var expDate = data.images[0].fields[0].inferText;
-								var nameText = data.images[0].fields[1].inferText;
+                            if (data.images[0].inferResult == 'SUCCESS') {
+                                // 상품 유통기한
+                                var expDate = data.images[0].fields[0].inferText;
 
-								var htmlText = '';
-								if (nameText != '') {
-									htmlText = '품목명 : ' + nameText;
-								}
-								if (expDate != '') {
-									htmlText = htmlText + '<br/>' + '유통기한 : ' + expDate;
-								}
+                                // 상품 이름
+                                var nameText = data.images[0].fields[1].inferText;
 
-								$('.result-message').html(htmlText);
-								$('.result-message').show();
-							}
-						} else {
-							throw Error(data);
-						}
-					};
+                                // hidden form 데이터 저장
+                                $('#expDate').val(expDate);
+                                $('#nameText').val(nameText);
 
-					reader.readAsDataURL(input.files[0]);
-					// init().then(function(){
-					// 	console.log("hello");
+                                var htmlText = '';
+                                if (nameText != '') {
+                                    htmlText = '품목명 : ' + nameText;
+                                }
+                                if (expDate != '') {
+                                    htmlText = htmlText + '<br/>' + '유통기한 : ' + expDate;
+                                }
 
-					// 	predict();
-					// });
-				} else {
-					removeUpload();
-				}
-			}
+                                $('.result-message').html(htmlText);
+                                $('.result-message').show();
+                                var pInput = '.result-mwssage';
+                            }
+                        } else {
+                            throw Error(data);
+                        }
+                    };
 
-			function removeUpload() {
-				$('.file-upload-input').replaceWith($('.file-upload-input').clone());
-				$('.file-upload-content').hide();
-				$('.image-upload-wrap').show();
-			}
-			$('.image-upload-wrap').bind('dragover', function () {
-				$('.image-upload-wrap').addClass('image-dropping');
-			});
-			$('.image-upload-wrap').bind('dragleave', function () {
-				$('.image-upload-wrap').removeClass('image-dropping');
-			});
-		</script>
-		<script type="text/javascript">
-			function button_event() {
-				if (confirm('저장하시겠습니까?') == true) {
-					//확인
+                    reader.readAsDataURL(input.files[0]);
+                    // init().then(function(){
+                    // 	console.log("hello");
 
-					document.form.submit();
-				} else {
-					//취소
+                    // 	predict();
+                    // });
+                } else {
+                    removeUpload();
+                }
+            }
 
-					return;
-				}
-			}
-		</script>
-	</html>
+            function removeUpload() {
+                $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+                $('.file-upload-content').hide();
+                $('.image-upload-wrap').show();
+            }
+            $('.image-upload-wrap').bind('dragover', function () {
+                $('.image-upload-wrap').addClass('image-dropping');
+            });
+            $('.image-upload-wrap').bind('dragleave', function () {
+                $('.image-upload-wrap').removeClass('image-dropping');
+            });
+        </script>
+        <script type="text/javascript">
+            var openWin;
+            var saveDate = 7; // 쿠기 저장 기간
+
+            // 쿠키 저장 이름
+            var c_expDate = 'expDate';
+            var c_nameText = 'nameText';
+            var c_cookieCount = 'cookieCount';
+
+            function openSave() {
+                window.name = 'sub2.html';
+                // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+                openWin = window.open('sub2-save.html');
+            }
+
+            function button_event() {
+                console.log('구입 버튼 클릭');
+                var ran = Math.random();
+
+                // 상품 유통기한 (hidden 폼에서 가져오기)
+                var expDate = $('#expDate').val();
+
+                // 상품 이름 (hidden 폼에서 가져오기)
+                var nameText = $('#nameText').val();
+
+                // 저장된 우유 data cookie 갯수 가져오기
+                var cookieIndex = getCookie(c_cookieCount);
+
+                // 쿠키 값이 없을 경우 (최초 실행) 쿠키 갯수 0으로 초기화
+                if (cookieIndex == null) {
+                    console.log('쿠키 초기화');
+                    setCookie(c_cookieCount, 0, saveDate, '');
+                    cookieIndex = 0;
+                }
+                // 쿠키 값이 있을 경우 갯수를 +1 해주고 쿠키에 저장
+                else {
+                    cookieIndex++;
+                }
+
+                // cookie save
+                setCookie(c_cookieCount, cookieIndex, saveDate, ''); // 우유 쿠키 갯수 증가
+                setCookie(c_expDate, expDate, saveDate, cookieIndex);
+                setCookie(c_nameText, nameText, saveDate, cookieIndex);
+
+                // 알림창
+                alert('데이터가 목록에 저장되었습니다!!');
+
+                // 페이지 새로고침
+                window.location.reload();
+            }
+        </script>
+    </html>
 </html>

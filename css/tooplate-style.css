@@ -108,11 +108,11 @@ p {
 
 .tm-nav-text {
 	color: #ffcc66;
-	font-size: 35px;
+	font-size: 30px;
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: -60px;
+	bottom: -50px;
 }
 
 .fa-2x {
@@ -144,7 +144,7 @@ p {
 .grid {
 	display: flex;
 	flex-wrap: wrap;
-	grid-row-gap: 30px;
+	grid-row-gap: 80px;
 }
 .grid__item {
 	margin: 10px;
@@ -341,7 +341,7 @@ footer {
 .tm-copyright-text {
 	background-color: #ffcc66;
 	display: inline-block;
-	padding: 1px 30px;
+	padding: 4px 30px;
 }
 
 a,
